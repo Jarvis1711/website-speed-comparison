@@ -13,15 +13,14 @@
   <header class="container hero">
     <div>
       <h1>{{ config.APP_TITLE }}</h1>
-      <p>{{ config.APP_DESCRIPTION }}</p>
-      <div class="chip-row">
-        <span class="chip">{{ config.DOMAIN_LABEL }}</span>
-        <span class="chip">{{ config.ENTITY_SINGULAR }}</span>
+      <p>{{ config.APP_SUMMARY }}</p>
+      <div class="chips">
+        <span class="chip">Developer Experience</span>
+        <span class="chip">Engineering Initiative</span>
       </div>
     </div>
-    <a class="btn btn-primary" href="{{ url_for('create_record') }}">+ New {{ config.ENTITY_SINGULAR }}</a>
+    <a class="btn btn-primary" href="{{ url_for('web.create_item') }}">+ New {{ config.ENTITY }}</a>
   </header>
-
   <main class="container">{% block content %}{% endblock %}</main>
 </body>
 </html>

@@ -2,39 +2,39 @@
 
 {% block content %}
 <section class="form-card">
-  <h2>{% if record %}Edit{% else %}Create{% endif %} {{ config.ENTITY_SINGULAR }}</h2>
+  <h2>{% if item %}Edit{% else %}Create{% endif %} {{ config.ENTITY }}</h2>
   {% if error %}<p class="error">{{ error }}</p>{% endif %}
 
   <form method="post" class="form-grid">
     <label>
       <span>Title</span>
-      <input name="title" value="{{ record.title if record else '' }}" required>
+      <input name="title" value="{{ item.title if item else '' }}" required>
     </label>
 
     <label>
       <span>Status</span>
       <select name="status">
-        {% set current_status = record.status if record else statuses[0] %}
+        {% set current_status = item.status if item else statuses[0] %}
         {% for status in statuses %}
-        <option value="{{ status }}" {{ 'selected' if current_status == status else '' }}>{{ status }}</option>
+        <option value="{{ status }}" {{ 'selected' if status == current_status else '' }}>{{ status }}</option>
         {% endfor %}
       </select>
     </label>
 
-    {% for field in field_schema %}
+    {% for f in field_schema %}
     <label class="full-width">
-      <span>{{ field.label }}</span>
-      {% if field.input_type == 'textarea' %}
-      <textarea name="{{ field.key }}" rows="4" {% if field.required %}required{% endif %}>{{ record.payload.get(field.key, '') if record else '' }}</textarea>
+      <span>{{ f.label }}</span>
+      {% if f.type == 'textarea' %}
+      <textarea name="{{ f.key }}" rows="4">{{ item.payload.get(f.key, '') if item else '' }}</textarea>
       {% else %}
-      <input name="{{ field.key }}" type="{{ 'number' if field.input_type == 'number' else 'text' }}" value="{{ record.payload.get(field.key, '') if record else '' }}" {% if field.required %}required{% endif %}>
+      <input name="{{ f.key }}" type="{{ 'number' if f.type == 'number' else 'text' }}" value="{{ item.payload.get(f.key, '') if item else '' }}">
       {% endif %}
     </label>
     {% endfor %}
 
-    <div class="row">
+    <div class="actions-row">
       <button class="btn btn-primary" type="submit">Save</button>
-      <a class="btn btn-ghost" href="{{ url_for('dashboard') }}">Cancel</a>
+      <a class="btn btn-ghost" href="{{ url_for('web.dashboard') }}">Cancel</a>
     </div>
   </form>
 </section>

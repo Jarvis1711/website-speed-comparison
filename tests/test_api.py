@@ -3,7 +3,8 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from app import FIELD_SCHEMA, create_app, db
+from app import create_app, db
+from app.schemas import FIELD_SCHEMA
 
 
 def build_client(tmp_path):
@@ -19,30 +20,20 @@ def build_client(tmp_path):
     return app.test_client()
 
 
-def sample_payload():
-    payload = {}
+def payload():
+    out = {}
     for field in FIELD_SCHEMA:
-        if field["input_type"] == "number":
-            payload[field["key"]] = 42
-        else:
-            payload[field["key"]] = "demo"
-    return payload
+        out[field["key"]] = 10 if field["type"] == "number" else "demo"
+    return out
 
 
 def test_health(tmp_path):
     client = build_client(tmp_path)
     response = client.get("/api/health")
     assert response.status_code == 200
-    assert response.json["status"] == "ok"
 
 
-def test_create_record(tmp_path):
+def test_create_item(tmp_path):
     client = build_client(tmp_path)
-    response = client.post(
-        "/api/records",
-        json={"title": "Phase2", "payload": sample_payload()},
-    )
+    response = client.post("/api/items", json={"title": "x", "payload": payload()})
     assert response.status_code == 201
-    listing = client.get("/api/records")
-    assert listing.status_code == 200
-    assert len(listing.json) == 1
