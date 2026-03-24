@@ -1,22 +1,19 @@
-GET /api/health response:
-{"status":"ok","app":"Website Speed Comparison"}
+GET /api/health
+{"status":"ok","app":"Website Speed Comparison","domain":"Developer Experience"}
 
-POST /api/items response:
+GET /api/schema
+{"statuses":["captured", "implementing", "review", "released"],"fields":[{"key":"repository"},{"key":"impact_score"},{"key":"technical_notes"}]}
+
+POST /api/records
 {
-    "id": 1,
-    "title": "Demo item",
-    "details": "Created from PoC command",
-    "status": "active",
-    "created_at": "2026-03-24T15:35:11.864296+00:00"
+  "id": 1,
+  "title": "Demo Record",
+  "status": "implementing",
+  "payload": {
+    "repository": "Demo value",
+    "impact_score": 12,
+    "technical_notes": "seed note"
+  },
+  "created_at": "2026-03-24T15:52:22.547017+00:00",
+  "updated_at": "2026-03-24T15:52:22.547017+00:00"
 }
-
-GET /api/items response:
-[
-    {
-        "id": 1,
-        "title": "Demo item",
-        "details": "Created from PoC command",
-        "status": "active",
-        "created_at": "2026-03-24T15:35:11.864301+00:00"
-    }
-]

@@ -1,25 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config.APP_TITLE }}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ config.APP_TITLE }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header class="container hero">
-        <div>
-            <h1>{{ config.APP_TITLE }}</h1>
-            <p>{{ config.APP_DESCRIPTION }}</p>
-        </div>
-        <a class="btn btn-primary" href="{{ url_for('create_item') }}">+ New Item</a>
-    </header>
+  <header class="container hero">
+    <div>
+      <h1>{{ config.APP_TITLE }}</h1>
+      <p>{{ config.APP_DESCRIPTION }}</p>
+      <div class="chip-row">
+        <span class="chip">{{ config.DOMAIN_LABEL }}</span>
+        <span class="chip">{{ config.ENTITY_SINGULAR }}</span>
+      </div>
+    </div>
+    <a class="btn btn-primary" href="{{ url_for('create_record') }}">+ New {{ config.ENTITY_SINGULAR }}</a>
+  </header>
 
-    <main class="container">
-        {% block content %}{% endblock %}
-    </main>
+  <main class="container">{% block content %}{% endblock %}</main>
 </body>
 </html>

@@ -1,21 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-    <defs>
-        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#eef4ff" />
-            <stop offset="100%" stop-color="#f8fbff" />
-        </linearGradient>
-    </defs>
-    <rect width="1200" height="630" fill="url(#bg)"/>
-    <rect x="70" y="70" width="1060" height="490" rx="24" fill="#ffffff" stroke="#d0d5dd"/>
-    <text x="110" y="165" font-size="42" font-family="Inter, Arial" fill="#101828" font-weight="700">Website Speed Comparison</text>
-    <text x="110" y="220" font-size="24" font-family="Inter, Arial" fill="#475467">Deployable Flask + SQLite solution scaffold</text>
-    <rect x="110" y="280" width="320" height="150" rx="14" fill="#f5f8ff" stroke="#d6e4ff"/>
-    <text x="140" y="340" font-size="22" font-family="Inter, Arial" fill="#344054">Planned</text>
-    <text x="140" y="390" font-size="40" font-family="Inter, Arial" fill="#1d4ed8" font-weight="700">4</text>
-    <rect x="455" y="280" width="320" height="150" rx="14" fill="#ecfdf3" stroke="#b7ebcf"/>
-    <text x="485" y="340" font-size="22" font-family="Inter, Arial" fill="#344054">Active</text>
-    <text x="485" y="390" font-size="40" font-family="Inter, Arial" fill="#027a48" font-weight="700">2</text>
-    <rect x="800" y="280" width="320" height="150" rx="14" fill="#f4f3ff" stroke="#ddd6fe"/>
-    <text x="830" y="340" font-size="22" font-family="Inter, Arial" fill="#344054">Done</text>
-    <text x="830" y="390" font-size="40" font-family="Inter, Arial" fill="#5925dc" font-weight="700">7</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#edf3ff" />
+      <stop offset="100%" stop-color="#f8faff" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="490" rx="20" fill="#fff" stroke="#d6ddeb"/>
+  <text x="110" y="150" font-size="40" font-family="Inter, Arial" fill="#111827" font-weight="700">Website Speed Comparison</text>
+  <text x="110" y="195" font-size="24" font-family="Inter, Arial" fill="#475467">Phase-2 Domain App • Developer Experience</text>
+  <text x="110" y="250" font-size="20" font-family="Inter, Arial" fill="#344054">Entity: Website Speed Engineering Item</text>
+  <text x="110" y="290" font-size="18" font-family="Inter, Arial" fill="#344054">Fields: Repository • Impact Score • Technical Notes</text>
+  <rect x="110" y="330" width="980" height="160" rx="14" fill="#f8fbff" stroke="#dde6ff"/>
+  <text x="140" y="385" font-size="22" font-family="Inter, Arial" fill="#1f2937">Status Pipeline: captured → implementing → review → released</text>
+  <text x="140" y="435" font-size="20" font-family="Inter, Arial" fill="#4b5563">Deployable via Dockerfile + Procfile + CI workflow</text>
 </svg>
